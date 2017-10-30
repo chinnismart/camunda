@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="definitions_1e9rh1f" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="gst" name="GST">
+    <extensionElements>
+      <biodi:bounds x="200" y="200" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="decisionTable">
+      <input id="input1" label="Goods Type" camunda:inputVariable="">
+        <inputExpression id="inputExpression1" typeRef="string">        <text>goodsType</text>
+</inputExpression>
+        <inputValues id="UnaryTests_1h2sy3p">        <text><![CDATA["Education","Healthcare","Residential","Hotel/ Lodges with tariff below INR 1000","Goods transport","Rail tickets (other than sleeper class)","Economy class air tickets","Telecom services","Financial services","Restaurant services","Cinema tickets","Luxury cars",""]]></text>
+</inputValues>
+      </input>
+      <output id="output1" label="GST Rate" name="gstRates" typeRef="double" />
+      <rule id="row-6243567-1">
+        <inputEntry id="UnaryTests_0xp5e4w">        <text><![CDATA["Education", "Healthcare", "Residential", "Hotel/ Lodges with tariff below INR 1000"]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_0g4avzr">        <text>0</text>
+</outputEntry>
+      </rule>
+      <rule id="row-6243567-2">
+        <inputEntry id="UnaryTests_0qzwaxx">        <text><![CDATA["Goods transport", "Rail tickets (other than sleeper class)", "Economy class air tickets"]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_0277b3k">        <text>0.5</text>
+</outputEntry>
+      </rule>
+      <rule id="row-6243567-3">
+        <inputEntry id="UnaryTests_0b8f3kx">        <text><![CDATA["Economy class air tickets", "Telecom services", "Financial services"]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_0u4sake">        <text>12</text>
+</outputEntry>
+      </rule>
+      <rule id="row-6243567-4">
+        <inputEntry id="UnaryTests_1y9rbp2">        <text><![CDATA["Cinema tickets", "Luxury cars"]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_1o3j1ew">        <text>18</text>
+</outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
